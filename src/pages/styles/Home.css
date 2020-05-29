@@ -1,0 +1,31 @@
+Home {
+  width: 100%;
+  min-height: calc(100vh - 60px);
+
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+}
+
+.Home__col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .Home__col {
+    align-items: flex-start;
+  }
+}
+.hero-container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: center;
+}
