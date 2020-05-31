@@ -4,11 +4,10 @@ import * as serviceWorker from "./serviceWorker";
 import 'bootstrap/dist/css/bootstrap.css';
 
 import "./global.css";
-import Blog from "./pages/Blog";
-
+import App from "../src/components/App";
 
 const container = document.getElementById("app");
 
-ReactDOM.render(<Blog />, container);
+ReactDOM.render(<App />, container);
 
 serviceWorker.unregister();

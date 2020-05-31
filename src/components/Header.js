@@ -1,12 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import SearchIcon from "@material-ui/icons/Search";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
+import { Link as LinkRoute } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -16,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
   },
   toolbarSecondary: {
-    justifyContent: 'space-between',
-    overflowX: 'auto',
+    justifyContent: "space-between",
+    overflowX: "auto",
   },
   toolbarLink: {
     padding: theme.spacing(1),
@@ -32,7 +33,9 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-        <Button size="small">Subscribe</Button>
+        <LinkRoute to ="/SigIn">
+          <Button size="small">Subscribe</Button>
+        </LinkRoute>
         <Typography
           component="h2"
           variant="h5"
@@ -50,7 +53,11 @@ export default function Header(props) {
           Sign up
         </Button>
       </Toolbar>
-      <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
+      <Toolbar
+        component="nav"
+        variant="dense"
+        className={classes.toolbarSecondary}
+      >
         {sections.map((section) => (
           <Link
             color="inherit"
