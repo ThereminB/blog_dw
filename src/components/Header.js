@@ -33,7 +33,7 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-        <LinkRoute to ="/SigIn">
+        <LinkRoute to="/SigIn">
           <Button size="small">Subscribe</Button>
         </LinkRoute>
         <Typography
@@ -49,9 +49,11 @@ export default function Header(props) {
         <IconButton>
           <SearchIcon />
         </IconButton>
-        <Button variant="outlined" size="small">
-          Sign up
-        </Button>
+        <LinkRoute to="/NewPost">
+          <Button variant="outlined" size="small">
+            Crea un post
+          </Button>
+        </LinkRoute>
       </Toolbar>
       <Toolbar
         component="nav"
