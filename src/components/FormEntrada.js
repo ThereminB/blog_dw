@@ -33,6 +33,8 @@ export default function FormEntrada(props) {
 
   const classes = useStyles();
 
+  console.log(props.entrada);
+
   const handleImagen = (event) => {
     console.log(event.target.files[0]);
 
@@ -65,15 +67,21 @@ export default function FormEntrada(props) {
   return (
     <>
       <Grid container spacing={3}>
+        {props.entrada ? (
+          <Grid item xs={12}>
+            <img src={props.entrada.imagen} />
+          </Grid>
+        ) : null}
         <Grid item xs={12} spacing={3}>
           <Formik
             initialValues={{
-              titulo: "",
-              texto_intro: "",
-              texto_completo: "",
+              titulo: props.entrada ? props.entrada.titulo : "",
+              texto_intro: props.entrada ? props.entrada.texto_intro : "",
+              texto_completo: props.entrada ? props.entrada.texto_completo : "",
             }}
             validationSchema={entradaSchema}
             onSubmit={handleSubmit}
+            enableReinitialize
           >
             {(formikprops) => {
               // console.log(formikprops);
