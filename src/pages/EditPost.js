@@ -63,7 +63,7 @@ const EditPost = (props) => {
     };
     console.log(options);
 
-    fetch("http://localhost:8000/entradas/", options)
+    fetch(`http://localhost:8000/entradas/${id}/`, options)
       .then((response) => {
         response.json().then((body) => {
           console.log("Creado", body);

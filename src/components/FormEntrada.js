@@ -44,7 +44,9 @@ export default function FormEntrada(props) {
   const handleSubmit = (values, actions) => {
     // console.log("values", values);
     // console.log("actions", actions);
-    props.handleSubmit({ ...values, imagen: imagen });
+    const vals = imagen ? { ...values, imagen: imagen } : values;
+
+    props.handleSubmit(vals);
   };
 
   const entradaSchema = Yup.object().shape({
@@ -69,7 +71,7 @@ export default function FormEntrada(props) {
       <Grid container spacing={3}>
         {props.entrada ? (
           <Grid item xs={12}>
-            <img src={props.entrada.imagen} />
+            <img src={props.entrada.imagen} width="50%" />
           </Grid>
         ) : null}
         <Grid item xs={12} spacing={3}>
