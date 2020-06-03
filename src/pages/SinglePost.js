@@ -3,13 +3,15 @@ import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
-
+import GitHubIcon from "@material-ui/icons/GitHub";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import TwitterIcon from "@material-ui/icons/Twitter";
 
 import Header from "../components/Header";
 import MainFeaturedPost from "../components/MainFeaturedPost";
 import FeaturedPost from "../components/FeaturedPost";
 import Main from "../components/Main";
-import Sidebar from "../components/Sidebar";
+import SidebarPost from "../components/SidebarPost";
 import Footer from "../components/Footer";
 
 const useStyles = makeStyles((theme) => ({
@@ -30,9 +32,8 @@ const mainFeaturedPost = {
   title: "Introducción a la linea de comandos",
   description:
     "Aprende a ejecutar los comandos básicos que necesitas para tu vida en la Terminal",
-  //image: "https://i.picsum.photos/id/1/800/400.jpg",
-  image: "https://i.picsum.photos/id/272/600/500.jpg",
-  imgText: "main image description",
+    image: "https://i.picsum.photos/id/1/800/400.jpg",
+    imgText: "main image description",
 };
 
 
@@ -73,6 +74,11 @@ const sidebar = {
     { title: "February 2020", url: "#" },
     { title: "January 2020", url: "#" },
   ],
+  social: [
+    { name: "GitHub", icon: GitHubIcon },
+    { name: "Twitter", icon: TwitterIcon },
+    { name: "Facebook", icon: FacebookIcon },
+  ],
 };
 
 export default function Blog() {
@@ -86,7 +92,7 @@ export default function Blog() {
       method: "GET",
     };
 
-    fetch("http://localhost:8000/entradas/", options)
+    fetch("http://localhost:8000/entradas/1", options)
       .then((response) =>
         response
           .json()
@@ -112,17 +118,13 @@ export default function Blog() {
         <Header title="Blog" sections={sections} />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
-          <Grid container spacing={4}>
-            {featuredPost.map((data) => (
-              <FeaturedPost key={data.titulo} post={data} />
-            ))}
-          </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>
-            <Main title="From the firehose" posts={posts} />
-            <Sidebar
+            <Main title="From the firehose" posts={data} />
+            <SidebarPost
               title={sidebar.title}
               description={sidebar.description}
               archives={sidebar.archives}
+              social={sidebar.social}
             />
           </Grid>
         </main>

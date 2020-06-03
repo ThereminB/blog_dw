@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-import Markdown from './Markdown';
 import ReactMarkdown from "react-markdown";
 
 const useStyles = makeStyles((theme) => ({
@@ -16,12 +15,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Main(props) {
   const classes = useStyles();
-  const { posts, title } = props;
+  const { posts, titulo } = props;
 
   return (
     <Grid item xs={12} md={8}>
       <Typography variant="h6" gutterBottom>
-        {title}
+        {titulo}
       </Typography>
       <Divider />
       {posts.map((post) => (
@@ -33,6 +32,6 @@ export default function Main(props) {
   );
 }
 Main.propTypes = {
-  posts: PropTypes.array,
+  posts: PropTypes.Object,
   title: PropTypes.string,
 };
