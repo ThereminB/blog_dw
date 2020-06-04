@@ -22,7 +22,6 @@ const sections = [
   { title: "Tecnología", url: "#" },
   { title: "Diseño", url: "#" },
   { title: "Cultura", url: "#" },
-  { title: "Negocios", url: "#" },
   { title: "Ciencia", url: "#" },
 ];
 
@@ -30,31 +29,9 @@ const mainFeaturedPost = {
   title: "Introducción a la linea de comandos",
   description:
     "Aprende a ejecutar los comandos básicos que necesitas para tu vida en la Terminal",
-  //image: "https://i.picsum.photos/id/1/800/400.jpg",
   image: "https://i.picsum.photos/id/272/600/500.jpg",
   imgText: "main image description",
 };
-
-
-//const post1 = '# This is a header\n\nAnd this is a paragraph'
-// const featuredPosts = [
-//   {
-//     title: "Featured post",
-//     date: "Nov 12",
-//     description:
-//       "This is a wider card with supporting text below as a natural lead-in to additional content.",
-//     image: "https://source.unsplash.com/random",
-//     imageText: "Image Text",
-//   },
-//   {
-//     title: "Post title",
-//     date: "Nov 11",
-//     description:
-//       "This is a wider card with supporting text below as a natural lead-in to additional content.",
-//     image: "https://source.unsplash.com/random",
-//     imageText: "Image Text",
-//   },
-// ];
 
 const post1 = '# Sample blog post \n' +
 '#### April 1, 2020 by [Baruc, Jorge & Denisse]\n' +
@@ -114,7 +91,7 @@ export default function Blog() {
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
             {featuredPost.map((data) => (
-              <FeaturedPost key={data.titulo} post={data} />
+              <FeaturedPost key={data.id} post={data} />
             ))}
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>

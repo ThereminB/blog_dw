@@ -1,10 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import ReactMarkdown from "react-markdown";
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles((theme) => ({
   markdown: {
@@ -13,25 +12,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Main(props) {
+export default function MainPost(props) {
   const classes = useStyles();
-  const { posts, titulo } = props;
-
+  
+  console.log(props);
+  
   return (
     <Grid item xs={12} md={8}>
       <Typography variant="h6" gutterBottom>
-        {titulo}
+        {props.title}
       </Typography>
       <Divider />
-      {posts.map((post) => (
-        <ReactMarkdown className={classes.markdown} key={post}> 
-          {post}
-        </ReactMarkdown>
-      ))}
+        <Typography component="h2" variant="h5">
+          {props.posts.titulo}
+        </Typography>
+        <Typography variant="subtitle1" color="textSecondary">
+          {Date(props.posts.fecha_publ)}
+        </Typography>
+        <Typography variant="subtitle1" paragraph>
+          {props.posts.texto_completo}
+        </Typography>
     </Grid>
   );
 }
-Main.propTypes = {
-  posts: PropTypes.Object,
+MainPost.propTypes = {
+  posts: PropTypes.object,
   title: PropTypes.string,
 };

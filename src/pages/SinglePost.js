@@ -9,8 +9,7 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 
 import Header from "../components/Header";
 import MainFeaturedPost from "../components/MainFeaturedPost";
-import FeaturedPost from "../components/FeaturedPost";
-import Main from "../components/Main";
+import MainPost from "../components/MainPost";
 import SidebarPost from "../components/SidebarPost";
 import Footer from "../components/Footer";
 
@@ -36,35 +35,6 @@ const mainFeaturedPost = {
     imgText: "main image description",
 };
 
-
-//const post1 = '# This is a header\n\nAnd this is a paragraph'
-// const featuredPosts = [
-//   {
-//     title: "Featured post",
-//     date: "Nov 12",
-//     description:
-//       "This is a wider card with supporting text below as a natural lead-in to additional content.",
-//     image: "https://source.unsplash.com/random",
-//     imageText: "Image Text",
-//   },
-//   {
-//     title: "Post title",
-//     date: "Nov 11",
-//     description:
-//       "This is a wider card with supporting text below as a natural lead-in to additional content.",
-//     image: "https://source.unsplash.com/random",
-//     imageText: "Image Text",
-//   },
-// ];
-
-const post1 = '# Sample blog post \n' +
-'#### April 1, 2020 by [Baruc, Jorge & Denisse]\n' +
-'This blog post shows a few different types of content that are supported and styled with\n' +
-'Material styles. Basic typography, images, and code are all supported.\n' +
-'You can extend these by modifying Markdown.js\n';
-
-const posts = [post1];
-
 const sidebar = {
   title: "About",
   description:
@@ -81,26 +51,25 @@ const sidebar = {
   ],
 };
 
-export default function Blog() {
+export default function SinglePost() {
   const classes = useStyles();
   
-  const [featuredPost, setFeaturedPost]= useState([]);
+  const [single, setSingle]= useState({});
   useEffect(() => {
-    console.log(featuredPost);
 
     const options = {
       method: "GET",
     };
 
-    fetch("http://localhost:8000/entradas/1", options)
+    fetch("http://localhost:8000/entradas/1/", options)
       .then((response) =>
         response
           .json()
           .then((data) => {
             console.log(data);
 
-            setFeaturedPost(data);
-            console.log(FeaturedPost);
+            setSingle(data);
+            console.log(single);
           })
           .catch((error) => {
             console.log(error);
@@ -119,13 +88,13 @@ export default function Blog() {
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={5} className={classes.mainGrid}>
-            <Main title="From the firehose" posts={data} />
-            <SidebarPost
+            <MainPost title="From the firehose" posts={single} />
+             <SidebarPost
               title={sidebar.title}
               description={sidebar.description}
               archives={sidebar.archives}
               social={sidebar.social}
-            />
+            /> 
           </Grid>
         </main>
       </Container>
