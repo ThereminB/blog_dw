@@ -26,26 +26,22 @@ const sections = [
 ];
 
 const mainFeaturedPost = {
-  title: "Introducción a la linea de comandos",
+  title: "Blog personal donde daré mi humilde opinión.",
   description:
-    "Aprende a ejecutar los comandos básicos que necesitas para tu vida en la Terminal",
+    "Este es un espacio abierto, pueden comentar y discutir de cualquier cosa.",
   image: "https://i.picsum.photos/id/272/600/500.jpg",
   imgText: "main image description",
 };
 
-const post1 = '# Sample blog post \n' +
-'#### April 1, 2020 by [Baruc, Jorge & Denisse]\n' +
-'This blog post shows a few different types of content that are supported and styled with\n' +
-'Material styles. Basic typography, images, and code are all supported.\n' +
-'You can extend these by modifying Markdown.js\n';
+const post1 = '# Disfruten del contenido \n' +
+'#### Junio 5, 2020 by [Baruc, Jorge & Denisse]\n' +
+'## This blog post shows a few different types of content that are supported in english and spanish.\n';
+
 
 const posts = [post1];
 
 const sidebar = {
-  title: "About",
-  description:
-    "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.",
-  archives: [
+ archives: [
     { title: "Marzo 2020", url: "#" },
     { title: "February 2020", url: "#" },
     { title: "January 2020", url: "#" },
